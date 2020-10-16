@@ -11,9 +11,13 @@ app.use(bodyParser.json());
 
 // ROUTES BELOW HERE
 
-// TODO GET
+// TODO GET results of calculations
+app.get('/calculation', (req, res) => {
+  console.log('GET');
+  res.send(calcInfo);
+});
 
-// TODO POST
+// POST for receiving calc inputs from input fields
 app.post('/calculation', (req, res) => {
   console.log(req.body);
   res.sendStatus(200);
