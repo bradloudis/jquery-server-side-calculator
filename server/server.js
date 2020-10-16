@@ -13,6 +13,12 @@ app.use(bodyParser.json());
 
 // TODO GET results of calculations
 app.get('/calculation', (req, res) => {
+  // calc data
+  //{
+  //   numOne: 0,
+  //   operator: 'add',
+  //   numTwo: 0,
+  // }
   console.log('GET');
   res.send(calcInfo);
 });
