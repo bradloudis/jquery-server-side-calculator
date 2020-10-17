@@ -30,14 +30,19 @@ app.post('/calculation', (req, res) => {
   console.log(calcInfo);
   for (let i = 0; i < calcInfo.length; i++) {
     const entry = calcInfo[i];
+    let result = 0;
     if (entry.operator === 'add') {
-      console.log('ADD');
+      result += Number(entry.numOne) + Number(entry.numTwo);
+      console.log(result);
     } else if (entry.operator === 'subtract') {
-      console.log('SUB');
+      result += Number(entry.numOne) - Number(entry.numTwo);
+      console.log(result);
     } else if (entry.operator === 'multiply') {
-      console.log('MULT');
+      result += Number(entry.numOne) * Number(entry.numTwo);
+      console.log(result);
     } else {
-      console.log('DIV');
+      result += Number(entry.numOne) / Number(entry.numTwo);
+      console.log(result);
     }
   }
   res.sendStatus(200);
