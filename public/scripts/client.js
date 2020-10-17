@@ -9,12 +9,13 @@ function readyUp() {
   $('.js-minusBtn').on('click', operatorSelector);
   $('.js-multiplyBtn').on('click', operatorSelector);
   $('.js-divideBtn').on('click', operatorSelector);
-  $('.js-clearBtn').on('click', clearFields, removeBtnColor);
+  $('.js-clearBtn').on('click', clearFields);
 }
 
 function clearFields() {
   $('.js-numOne').val('');
   $('.js-numTwo').val('');
+  removeBtnColor();
 }
 
 function removeBtnColor() {
@@ -51,8 +52,8 @@ function render(response) {
     result.append(
       `<li>${response[i].numOne} ${response[i].operator} ${response[i].numTwo} = ${response[i].result}</li>`
     );
-    bigResult.append(`<h2>${response[i].result}</h2>`);
   }
+  bigResult.append(`<h2>${response[response.length - 1].result}</h2>`);
 }
 
 // SERVER CALLS
