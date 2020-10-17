@@ -13,31 +13,34 @@ app.use(bodyParser.json());
 
 // TODO GET results of calculations and full history of calcs
 app.get('/calculation', (req, res) => {
-  // calc data
-  //{
-  //   numOne: 0,
-  //   operator: 'add',
-  //   numTwo: 0,
-  // }
-  console.log('GET');
+  // console.log('GET');
   res.send(calcHistory);
 });
 
 // POST for receiving calc inputs from input fields
+// calc data
+//{
+//   numOne: 0,
+//   operator: 'add',
+//   numTwo: 0,
+// }
 app.post('/calculation', (req, res) => {
   // console.log(req.body);
   const calcData = req.body;
-  console.log(calcData);
-  for (let i = 0; i < calcData.length; i++) {
-    const entry = calcData[i];
+  const calcArray = [];
+  calcArray.push(calcData);
+  console.log(calcArray);
+  for (let i = 0; i < calcArray.length; i++) {
+    const entry = calcArray[i];
     let result = 0;
-    if (entry.operator === 'add') {
+    console.log(entry);
+    if (entry.operator === '+') {
       result += Number(entry.numOne) + Number(entry.numTwo);
       calcData.result = result;
-    } else if (entry.operator === 'subtract') {
+    } else if (entry.operator === '-') {
       result += Number(entry.numOne) - Number(entry.numTwo);
       calcData.result = result;
-    } else if (entry.operator === 'multiply') {
+    } else if (entry.operator === '*') {
       result += Number(entry.numOne) * Number(entry.numTwo);
       calcData.result = result;
     } else {
@@ -46,7 +49,7 @@ app.post('/calculation', (req, res) => {
     }
   }
   calcHistory.push(calcData);
-  console.log(calcHistory);
+  // console.log(calcHistory);
   res.sendStatus(200);
 });
 
