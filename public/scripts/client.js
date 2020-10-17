@@ -4,6 +4,7 @@ let operator = '';
 
 function readyUp() {
   // console.log('JQ');
+  getCalcHistory();
   $('.js-equalBtn').on('click', clickEqualSubmit);
   $('.js-addBtn').on('click', operatorSelector);
   $('.js-minusBtn').on('click', operatorSelector);
