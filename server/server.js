@@ -4,14 +4,14 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-let calcInfo = [];
+let calcHistory = [];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // ROUTES BELOW HERE
 
-// TODO GET results of calculations
+// TODO GET results of calculations and full history of calcs
 app.get('/calculation', (req, res) => {
   // calc data
   //{
@@ -20,7 +20,7 @@ app.get('/calculation', (req, res) => {
   //   numTwo: 0,
   // }
   console.log('GET');
-  res.send(calcInfo);
+  res.send(calcHistory);
 });
 
 // POST for receiving calc inputs from input fields
@@ -45,8 +45,8 @@ app.post('/calculation', (req, res) => {
       calcData.result = result;
     }
   }
-  calcInfo.push(calcData);
-  console.log(calcInfo);
+  calcHistory.push(calcData);
+  console.log(calcHistory);
   res.sendStatus(200);
 });
 
