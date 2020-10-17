@@ -26,8 +26,16 @@ function operatorSelector() {
   return operator;
 }
 
-function render() {
-  console.log('render is rendering!');
+function render(response) {
+  console.log(response);
+  const result = $('.js-results');
+
+  result.empty();
+  for (let i = 0; i < response.length; i++) {
+    result.append(
+      `<li>${response[i].numOne} ${response[i].operator} ${response[i].numTwo} = ${response[i].result}</li>`
+    );
+  }
 }
 
 // SERVER CALLS

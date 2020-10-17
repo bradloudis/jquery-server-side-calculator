@@ -26,25 +26,27 @@ app.get('/calculation', (req, res) => {
 // POST for receiving calc inputs from input fields
 app.post('/calculation', (req, res) => {
   // console.log(req.body);
-  calcInfo.push(req.body);
-  console.log(calcInfo);
-  for (let i = 0; i < calcInfo.length; i++) {
-    const entry = calcInfo[i];
+  const calcData = req.body;
+  console.log(calcData);
+  for (let i = 0; i < calcData.length; i++) {
+    const entry = calcData[i];
     let result = 0;
     if (entry.operator === 'add') {
       result += Number(entry.numOne) + Number(entry.numTwo);
-      console.log(result);
+      calcData.result = result;
     } else if (entry.operator === 'subtract') {
       result += Number(entry.numOne) - Number(entry.numTwo);
-      console.log(result);
+      calcData.result = result;
     } else if (entry.operator === 'multiply') {
       result += Number(entry.numOne) * Number(entry.numTwo);
-      console.log(result);
+      calcData.result = result;
     } else {
       result += Number(entry.numOne) / Number(entry.numTwo);
-      console.log(result);
+      calcData.result = result;
     }
   }
+  calcInfo.push(calcData);
+  console.log(calcInfo);
   res.sendStatus(200);
 });
 
