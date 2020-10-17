@@ -25,7 +25,21 @@ app.get('/calculation', (req, res) => {
 
 // POST for receiving calc inputs from input fields
 app.post('/calculation', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
+  calcInfo.push(req.body);
+  console.log(calcInfo);
+  for (let i = 0; i < calcInfo.length; i++) {
+    const entry = calcInfo[i];
+    if (entry.operator === 'add') {
+      console.log('ADD');
+    } else if (entry.operator === 'subtract') {
+      console.log('SUB');
+    } else if (entry.operator === 'multiply') {
+      console.log('MULT');
+    } else {
+      console.log('DIV');
+    }
+  }
   res.sendStatus(200);
 });
 
