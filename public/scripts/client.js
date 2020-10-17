@@ -9,12 +9,19 @@ function readyUp() {
   $('.js-minusBtn').on('click', operatorSelector);
   $('.js-multiplyBtn').on('click', operatorSelector);
   $('.js-divideBtn').on('click', operatorSelector);
-  $('.js-clearBtn').on('click', clearFields);
+  $('.js-clearBtn').on('click', clearFields, removeBtnColor);
 }
 
 function clearFields() {
   $('.js-numOne').val('');
   $('.js-numTwo').val('');
+}
+
+function removeBtnColor() {
+  $('.js-addBtn').removeClass('colorBtn');
+  $('.js-minusBtn').removeClass('colorBtn');
+  $('.js-multiplyBtn').removeClass('colorBtn');
+  $('.js-divideBtn').removeClass('colorBtn');
 }
 
 function clickEqualSubmit() {
@@ -25,10 +32,11 @@ function clickEqualSubmit() {
     numTwo: $('.js-numTwo').val(),
   };
   postCalculations(calcObject);
-  clearFields();
+  removeBtnColor();
 }
 
 function operatorSelector() {
+  $(this).addClass('colorBtn');
   operator = $(this).prop('name');
   return operator;
 }
@@ -36,12 +44,14 @@ function operatorSelector() {
 function render(response) {
   console.log(response);
   const result = $('.js-results');
-
+  const bigResult = $('.js-bigResult');
+  bigResult.empty();
   result.empty();
   for (let i = 0; i < response.length; i++) {
     result.append(
       `<li>${response[i].numOne} ${response[i].operator} ${response[i].numTwo} = ${response[i].result}</li>`
     );
+    bigResult.append(`<h2>${response[i].result}</h2>`);
   }
 }
 
