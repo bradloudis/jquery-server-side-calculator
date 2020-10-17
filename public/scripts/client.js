@@ -9,6 +9,12 @@ function readyUp() {
   $('.js-minusBtn').on('click', operatorSelector);
   $('.js-multiplyBtn').on('click', operatorSelector);
   $('.js-divideBtn').on('click', operatorSelector);
+  $('.js-clearBtn').on('click', clearFields);
+}
+
+function clearFields() {
+  $('.js-numOne').val('');
+  $('.js-numTwo').val('');
 }
 
 function clickEqualSubmit() {
@@ -19,6 +25,7 @@ function clickEqualSubmit() {
     numTwo: $('.js-numTwo').val(),
   };
   postCalculations(calcObject);
+  clearFields();
 }
 
 function operatorSelector() {
