@@ -81,7 +81,9 @@ function getCalcHistory() {
     url: '/calculation',
   })
     .then((response) => {
-      render(response);
+      if (response.length > 0) {
+        render(response);
+      }
     })
     .catch((err) => {
       console.log(err);
