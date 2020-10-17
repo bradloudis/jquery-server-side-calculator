@@ -26,6 +26,10 @@ function operatorSelector() {
   return operator;
 }
 
+function render() {
+  console.log('render is rendering!');
+}
+
 // SERVER CALLS
 
 function postCalculations(calcObject) {
@@ -36,6 +40,7 @@ function postCalculations(calcObject) {
   })
     .then((response) => {
       console.log(response);
+      getCalcHistory();
     })
     .catch((err) => {
       console.log(err);
@@ -49,7 +54,7 @@ function getCalcHistory() {
     url: '/calculation',
   })
     .then((response) => {
-      console.log(response);
+      render(response);
     })
     .catch((err) => {
       console.log(err);
