@@ -1,7 +1,31 @@
-html {
-  background-color: olive;
+html,
+body {
+  font-family: 'Abel', serif;
+  background-color: #99cccc;
+  margin: 0;
 }
 
 .colorBtn {
-  background-color: turquoise;
+  background-color: #c7c4c9;
+}
+
+header {
+  text-align: center;
+  background-color: #f5fafa;
+  color: #0e1d1d;
+}
+
+.calcFields {
+  text-align: center;
+}
+
+.js-bigResult {
+  text-align: center;
+  color: #0e1d1d;
+}
+
+.js-results {
+  text-align: center;
+  list-style-position: inside;
+  color: #0e1d1d;a
 }
