@@ -24,6 +24,7 @@ function removeBtnColor() {
   $('.js-minusBtn').removeClass('colorBtn');
   $('.js-multiplyBtn').removeClass('colorBtn');
   $('.js-divideBtn').removeClass('colorBtn');
+  operator = '';
 }
 
 function clickEqualSubmit() {
@@ -33,7 +34,7 @@ function clickEqualSubmit() {
     $('.js-numTwo').val().length === 0
   ) {
     alert('Please fill out both input fields!');
-  } else if (!$('.js-addBtn').hasClass('colorBtn')) {
+  } else if (operator === '') {
     alert('Please select a math operator!');
   } else {
     const calcObject = {
