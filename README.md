@@ -14,6 +14,5 @@ Creating a calculator web application. A user can enter 2 numbers in the input f
 - jQuery Library
 - Node
 - Express
--
 
 <!-- Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md). -->

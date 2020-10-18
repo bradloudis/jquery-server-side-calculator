@@ -11,13 +11,15 @@ app.use(bodyParser.json());
 
 // ROUTES BELOW HERE
 
-// TODO GET results of calculations and full history of calcs
+// GET results of calculations and full history of calcs ---> to client side
 app.get('/calculation', (req, res) => {
   // console.log('GET');
+  // res.send sends the array that was calculated by the post function on /calculation ROUTE
   res.send(calcHistory);
 });
 
-// POST for receiving calc inputs from input fields
+// POST for receiving calc inputs from input fields --> from client side
+// function takes input numbers and does the necessary calculations
 // calc data
 //{
 //   numOne: 0,
@@ -29,11 +31,11 @@ app.post('/calculation', (req, res) => {
   const calcData = req.body;
   const calcArray = [];
   calcArray.push(calcData);
-  console.log(calcArray);
+  // console.log(calcArray);
   for (let i = 0; i < calcArray.length; i++) {
     const entry = calcArray[i];
     let result = 0;
-    console.log(entry);
+    // console.log(entry);
     if (entry.operator === '+') {
       result += Number(entry.numOne) + Number(entry.numTwo);
       calcData.result = result;
