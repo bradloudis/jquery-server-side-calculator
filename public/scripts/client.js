@@ -28,13 +28,17 @@ function removeBtnColor() {
 
 function clickEqualSubmit() {
   console.log('click me baby one more time!');
-  const calcObject = {
-    numOne: $('.js-numOne').val(),
-    operator: operator,
-    numTwo: $('.js-numTwo').val(),
-  };
-  postCalculations(calcObject);
-  removeBtnColor();
+  if ($('.js-numOne').val() != null && $('.js-numTwo').val() != 0) {
+    const calcObject = {
+      numOne: $('.js-numOne').val(),
+      operator: operator,
+      numTwo: $('.js-numTwo').val(),
+    };
+    postCalculations(calcObject);
+    removeBtnColor();
+  } else {
+    alert('Please fill out both input fields!');
+  }
 }
 
 function operatorSelector() {
