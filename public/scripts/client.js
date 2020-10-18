@@ -28,7 +28,14 @@ function removeBtnColor() {
 
 function clickEqualSubmit() {
   console.log('click me baby one more time!');
-  if ($('.js-numOne').val() != null && $('.js-numTwo').val() != 0) {
+  if (
+    $('.js-numOne').val().length === 0 ||
+    $('.js-numTwo').val().length === 0
+  ) {
+    alert('Please fill out both input fields!');
+  } else if (!$('.js-addBtn').hasClass('colorBtn')) {
+    alert('Please select a math operator!');
+  } else {
     const calcObject = {
       numOne: $('.js-numOne').val(),
       operator: operator,
@@ -36,8 +43,6 @@ function clickEqualSubmit() {
     };
     postCalculations(calcObject);
     removeBtnColor();
-  } else {
-    alert('Please fill out both input fields!');
   }
 }
 
